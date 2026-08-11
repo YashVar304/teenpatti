@@ -2,13 +2,13 @@ import './playerSeat.css'
 import Avtar from '../../assets/hacker.png'
 import PlayingCard from '../playingCard/PlayingCard'
 
-function PlayerSeat({ seatNumber, playerName = `Player ${seatNumber}`, chips = 1000, avatar = Avtar, cards = [] }) {
+function PlayerSeat({ seatNumber, playerName = `Player ${seatNumber}`, chips = 1000, avatar = Avtar, cards = [] ,winner=false}) {
     return (
         <>
 
-        <div className={`player-seat seat-${seatNumber}`}>
+        <div className={`player-seat seat-${seatNumber} `}>
             <div className="player-info">
-                <img className="player-avatar" src={avatar} alt={`Player ${seatNumber}`} />
+                <img className={`player-avatar ${winner ? 'winner' : ''}`} src={avatar} alt={`Player ${seatNumber}`} />
                 
             </div>
             <p className="player-name">{playerName}</p>

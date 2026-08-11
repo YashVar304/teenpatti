@@ -213,6 +213,22 @@ function Table() {
             }
         }
     }
+    function resetGame() {
+        setDeck(generateCards())
+        setResultDeclared(false)
+        setWinner(null)
+        setPotAmount(0)
+        setActiveRound(false)
+        setIsDealing(false)
+        setPlayerCards({
+            1: [],
+            2: [],
+            3: [],
+            4: [],
+            5: [],
+            6: []
+        })
+    }
     return (
         <div className="table">
             <div className="table-container">
@@ -230,6 +246,7 @@ function Table() {
                         chips={seat.chips}
                         avatar={seat.avatar}
                         cards={playerCards[seat.seatNumber]}
+                        winner={resultDeclared && winner && seat.seatNumber === 4 && winner.includes('Player 4')}
                     />
                 ))}
             </div>
@@ -238,9 +255,12 @@ function Table() {
                     <button onClick={placeBet}>Place Bet</button>
                 )}
                 {!activeRound&&(
-                    <button onClick={dealCards} disabled={isDealing}>
+                    <button onClick={dealCards} disabled={potAmount <= 0 || isDealing}>
                         {isDealing ? 'Dealing...' : 'Deal Cards'}
                     </button>
+                )}
+                {resultDeclared && (
+                    <button onClick={resetGame}>Reset Game</button>
                 )}
             </div>
         </div>

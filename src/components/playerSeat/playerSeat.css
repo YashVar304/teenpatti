@@ -6,34 +6,32 @@
     justify-content: flex-start;
     padding: 12px;
     font-size: 16px;
-    font-weight: bold;
-   
-    
+    font-weight: 700;
+    color: #fff;
+    z-index: 3;
 }
 
 .player-seat.seat-1 {
     top: 0;
     left: 50%;
-    transform: translate(-50%, -75%);
+    transform: translate(-50%, -78%);
 }
 
 .player-seat.seat-4 {
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, 75%);
+    transform: translate(-50%, 78%);
 }
 
 .player-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    aspect-ratio: 1/1;
     border-radius: 50%;
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
     padding: 8px;
     margin-bottom: 8px;
-    
 }
 
 .player-avatar {
@@ -42,53 +40,95 @@
     border-radius: 50%;
     object-fit: cover;
 }
+.winner{
+    border: 2px solid #FFD700; /* Gold border */
+    box-shadow: 0 0 10px #FFD700; /* Gold glow */
+    border-radius: 50%;
+}
+
 
 .player-name {
     font-size: 14px;
     margin: 6px 0 4px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .player-chips {
     font-size: 12px;
-    color: #666;
+    color: #f5e1c2;
 }
+
 .seat-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
-    margin-top: 8px;
+    position: absolute;
+    z-index: 2;
+}
+
+.seat-cards.seat-1 {
+    top:25px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .seat-cards.seat-4 {
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 8px;
-    top: 100%;
-
-}
-.seat-cards.seat-1 {
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 8px;
-    bottom: 100%;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .seat-cards .playing-card {
-
-    width: 30px;
-    height: 50px;
-    display: flex;
+    width: 56px;
+    height: 78px;
 }
 
 .cards-placeholder {
     font-size: 12px;
-    
+    color: #f1f1f1;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .player-seat {
+        padding: 8px;
+    }
+
+    .player-seat.seat-1 {
+        transform: translate(-50%, -72%);
+    }
+
+    .player-seat.seat-4 {
+        transform: translate(-50%, 72%);
+    }
+
+    .seat-cards {
+        gap: 6px;
+    }
+
+    .seat-cards .playing-card {
+        width: 48px;
+        height: 68px;
+    }
+}
+
+@media (max-width: 480px) {
+    .player-seat.seat-1 {
+        transform: translate(-50%, -68%);
+    }
+
+    .player-seat.seat-4 {
+        transform: translate(-50%, 68%);
+    }
+
+    .player-avatar {
+        width: 46px;
+        height: 46px;
+    }
+
+    .seat-cards .playing-card {
+        width: 42px;
+        height: 60px;
+    }
 }
