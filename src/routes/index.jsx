@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
         path: paths.landingpage,
         element: <RootLayout />,
         children: [
-            {index: true, element: <LandingPage />},
+            {index: true, element: <Game />},
             {path: paths.login, element: <Login />},
             {path: paths.lobby, element: <Lobby />},
             {path: paths.game, element: <Game />}
