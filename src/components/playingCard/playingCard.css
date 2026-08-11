@@ -17,11 +17,11 @@
 .playing-card .suit {
     font-size: 20px;
 }
-.playing-card.hearts .suit,
-.playing-card.diamonds .suit {
+.playing-card.hearts ,
+.playing-card.diamonds  {
     color: red;
 }
-.playing-card.spades .suit,
-.playing-card.clubs .suit {
+.playing-card.spades ,
+.playing-card.clubs  {
     color: black;
 }
