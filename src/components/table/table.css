@@ -5,7 +5,7 @@
     justify-content: center;
     gap:100px;
     align-items: center;
-    min-height: 80vh;
+    min-height: 100vh;
     padding: 24px 16px 32px;
     background: radial-gradient(circle at top, #3f8f54 0%, #1f5b33 55%, #163d24 100%);
 }
@@ -14,6 +14,7 @@
     position: relative;
     width: min(92vw, 900px);
     min-height: 360px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +27,7 @@
 }
 
 .table-actions {
+    height: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
