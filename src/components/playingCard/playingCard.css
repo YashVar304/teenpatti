@@ -46,3 +46,31 @@
         height: 80px;
     }
 }
+.card-back{
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #b91c1c 0px,
+      #b91c1c 4px,
+      #7f1d1d 4px,
+      #7f1d1d 8px
+    );
+
+  border: 2px solid #991b1b;
+}
+.card-back-design span {
+    color: white;
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    padding: 15px 5px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+}

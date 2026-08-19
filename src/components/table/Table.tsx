@@ -6,6 +6,7 @@ import Pot from '../Pot/Pot'
 import type { Card,Suit, Rank } from '../../types/card'
 import { generateCards } from '../../utils/deck'
 import { determineWinner } from '../../game/handEvalutor'
+import { Player } from '../../types/player'
 
 const avatar = new URL('../../assets/hacker.png', import.meta.url).toString()
 
@@ -13,9 +14,9 @@ function Table() {
     
 
     const [deck, setDeck] = useState<Card[]>(generateCards())
-     const [seats,setSeats] = useState([
-        { seatNumber: 1, playerName: 'Dealer', chips: 0, avatar: avatar },
-        { seatNumber: 4, playerName: 'Player 4', chips: 2500, avatar: avatar }
+     const [seats,setSeats] = useState<Player[]>([
+        { seatNumber: 1, playerName: 'Dealer', chips: 0, avatar: avatar, cards:[],winner: false },
+        { seatNumber: 4, playerName: 'Player 4', chips: 2500, avatar: avatar, cards:[],winner: false }
     ])
     const [resultDeclared, setResultDeclared] = useState(false)
     const [winner, setWinner] = useState<string | null>(null)

@@ -1,8 +1,9 @@
 import './playerSeat.css'
 import Avtar from '../../assets/hacker.png'
 import PlayingCard from '../playingCard/PlayingCard'
+import { Player } from '../../types/player'
 
-function PlayerSeat({ seatNumber, playerName = `Player ${seatNumber}`, chips = 1000, avatar = Avtar, cards = [] ,winner=false}) {
+function PlayerSeat({ seatNumber, playerName = `Player ${seatNumber}`, chips = 1000, avatar = Avtar, cards = [] ,winner=false}:Player) {
     return (
         <>
 
