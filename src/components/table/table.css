@@ -27,7 +27,8 @@
 }
 
 .table-actions {
-    height: 50px;
+    height: auto;
+    width: min(100%, 900px);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -56,6 +57,15 @@
     opacity: 0.7;
     cursor: not-allowed;
     transform: none;
+}
+
+.turn-status {
+    flex-basis: 100%;
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .winner-announcement {

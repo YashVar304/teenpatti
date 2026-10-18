@@ -1,11 +1,11 @@
 import './playingCard.css'
 import {Heart, Diamond, Club, Spade} from 'lucide-react'
-function PlayingCard({ rank, suit , isFaceDown=true}) {
+function PlayingCard({ rank, suit , isFaceDown=false}) {
     if(isFaceDown){
         return(<>
         <div className='playing-card card-back'>
             <div className='card-back-design'>
-                 <span>♠ ♥ ♣ ♦</span>
+                 
             </div>
         </div>
         </>)

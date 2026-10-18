@@ -5,7 +5,8 @@ export type Player = {
     playerName: string,
     chips:number,
     avatar: string,
-    cards: Array<Card>
-    winner: boolean
-
+    cards: Array<Card>,
+    winner: boolean,
+    isBlind: boolean,
+    blindCount: number,
 }

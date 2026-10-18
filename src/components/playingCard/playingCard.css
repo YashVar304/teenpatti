@@ -1,76 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap');
+
+/* ============================================================
+   PREMIUM PLAYING CARD
+   Ivory cardstock + gold foil face / deep midnight-gold back
+   ============================================================ */
+
 .playing-card {
-    width: 80px;
-    height: 120px;
-    border: 1px solid #d9d9d9;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(145deg, #ffffff, #f4f4f4);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    font-family: Arial, sans-serif;
+  --gold-1: #d8b45c;
+  --gold-2: #f4e2a8;
+  --gold-3: #a9812f;
+  --ivory: #faf5e9;
+  --ivory-shadow: #ece2c8;
+  --ink: #1c1a17;
+  --crimson: #8f1d2c;
+  --crimson-deep: #5e1019;
+  --navy: #0c1f2e;
+  --navy-deep: #061319;
+
+  position: relative;
+  width: 160px;
+  height: 224px;
+  border-radius: 14px;
+  box-sizing: border-box;
+  font-family: 'Cinzel', serif;
+  user-select: none;
+  cursor: default;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    0 8px 16px -6px rgba(0, 0, 0, 0.35),
+    0 16px 32px -12px rgba(0, 0, 0, 0.3);
+}
+
+.playing-card:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 14px 24px -8px rgba(0, 0, 0, 0.4),
+    0 24px 44px -14px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------- FACE ---------------- */
+
+.playing-card:not(.card-back) {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.6), transparent 55%),
+    linear-gradient(155deg, var(--ivory) 0%, var(--ivory-shadow) 100%);
+  border: 1px solid var(--gold-3);
+  outline: 1px solid rgba(216, 180, 92, 0.5);
+  outline-offset: -4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* subtle paper grain */
+.playing-card:not(.card-back)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.015) 0px, transparent 1px, transparent 2px);
+  pointer-events: none;
+}
+
+/* corner flourishes */
+.playing-card:not(.card-back)::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 9px;
+  border: 1px solid rgba(169, 129, 47, 0.35);
+  pointer-events: none;
 }
 
 .playing-card .rank {
-    font-size: 24px;
-    font-weight: 800;
-    line-height: 1;
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  z-index: 1;
+  background: linear-gradient(180deg, var(--ink) 0%, #3a352c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .playing-card .suit {
-    font-size: 20px;
-    margin-top: 6px;
-}
-
-.playing-card.hearts,
-.playing-card.diamonds {
-    color: #c62828;
-}
-
-.playing-card.spades,
-.playing-card.clubs {
-    color: #222;
-}
-
-@media (max-width: 768px) {
-    .playing-card {
-        width: 64px;
-        height: 96px;
-    }
-}
-
-@media (max-width: 480px) {
-    .playing-card {
-        width: 54px;
-        height: 80px;
-    }
-}
-.card-back{
-    height: 100%;
-    width: 100%;
-    border-radius: 7px;
-    display: flex;
+  z-index: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  background:
-    repeating-linear-gradient(
-      45deg,
-      #b91c1c 0px,
-      #b91c1c 4px,
-      #7f1d1d 4px,
-      #7f1d1d 8px
-    );
-
-  border: 2px solid #991b1b;
 }
-.card-back-design span {
-    color: white;
-    font-size: 12px;
-    letter-spacing: 3px;
 
-    padding: 15px 5px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 4px;
+.playing-card .suit svg {
+  width: 46px;
+  height: 46px;
+  stroke-width: 1.5;
+}
+
+/* watermark suit glyph behind everything, for depth */
+.playing-card:not(.card-back) .suit::before {
+  content: '';
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(169, 129, 47, 0.08), transparent 70%);
+  z-index: -1;
+}
+
+.playing-card .rank::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1px;
+  margin: 5px auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold-3), transparent);
+}
+
+/* suit colors */
+.playing-card.hearts .rank,
+.playing-card.diamonds .rank {
+  background: linear-gradient(180deg, var(--crimson) 0%, var(--crimson-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.playing-card.hearts .suit svg,
+.playing-card.diamonds .suit svg {
+  fill: var(--crimson);
+  stroke: var(--crimson-deep);
+  filter: drop-shadow(0 2px 3px rgba(143, 29, 44, 0.35));
+}
+
+.playing-card.clubs .suit svg,
+.playing-card.spades .suit svg {
+  fill: var(--ink);
+  stroke: #000;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+/* ---------------- BACK ---------------- */
+
+.card-back {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(216, 180, 92, 0.08), transparent 60%),
+    linear-gradient(155deg, var(--navy) 0%, var(--navy-deep) 100%);
+  border: 1px solid var(--gold-3);
+  outline: 1px solid rgba(237, 171, 6, 0.951);
+  outline-offset: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-back-design {
+  position: relative;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border-radius: 8px;
+  border: 1px solid rgba(216, 180, 92, 0.4);
+  background:
+    repeating-linear-gradient(45deg, rgba(216, 180, 92, 0.07) 0px, rgba(216, 180, 92, 0.07) 1px, transparent 1px, transparent 12px),
+    repeating-linear-gradient(-45deg, rgba(216, 180, 92, 0.07) 0px, rgba(216, 180, 92, 0.07) 1px, transparent 1px, transparent 12px);
+}
+
+/* central emblem: layered gold rosette */
+.card-back-design::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  /* border: 1.5px solid var(--gold-1);
+  box-shadow:
+    0 0 0 6px var(--navy),
+    0 0 0 7px rgba(216, 180, 92, 0.6),
+    inset 0 0 12px rgba(216, 180, 92, 0.25); */
+  border-radius: 6px;
+}
+
+.card-back-design::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1px solid rgba(244, 226, 168, 0.8);
+  border-radius: 4px;
+  background: radial-gradient(circle, rgba(216, 180, 92, 0.25), transparent 70%);
 }

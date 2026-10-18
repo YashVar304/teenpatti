@@ -23,6 +23,39 @@
     transform: translate(-50%, 78%);
 }
 
+.player-seat.seat-2 {
+    top: 0;
+    right: 15%;
+    transform: translate(50%, -68%);
+}
+
+.player-seat.seat-3 {
+    bottom: 0;
+    right: 15%;
+    transform: translate(50%, 68%);
+}
+
+.player-seat.seat-5 {
+    bottom: 0;
+    left: 15%;
+    transform: translate(-50%, 68%);
+}
+
+.player-seat.seat-6 {
+    top: 0;
+    left: 15%;
+    transform: translate(-50%, -68%);
+}
+
+.player-seat.active .player-info {
+    outline: 3px solid #ffd700;
+    outline-offset: 2px;
+}
+
+.player-seat.folded {
+    opacity: 0.45;
+}
+
 .player-info {
     display: flex;
     flex-direction: column;
@@ -58,6 +91,12 @@
     color: #f5e1c2;
 }
 
+.player-state {
+    margin: 2px 0 0;
+    font-size: 11px;
+    color: #ffe6a1;
+}
+
 .seat-cards {
     display: flex;
     flex-wrap: wrap;
@@ -77,6 +116,34 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.seat-cards.seat-2 {
+    top: 25%;
+    right: 17%;
+    transform: translate(50%, -50%);
+}
+
+.seat-cards.seat-3 {
+    bottom: 25%;
+    right: 17%;
+    transform: translate(50%, 50%);
+}
+
+.seat-cards.seat-5 {
+    bottom: 25%;
+    left: 17%;
+    transform: translate(-50%, 50%);
+}
+
+.seat-cards.seat-6 {
+    top: 25%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+}
+
+.seat-cards.folded {
+    display: none;
 }
 
 .seat-cards .playing-card {
@@ -103,6 +170,16 @@
         transform: translate(-50%, 72%);
     }
 
+    .player-seat.seat-2,
+    .player-seat.seat-3 {
+        right: 12%;
+    }
+
+    .player-seat.seat-5,
+    .player-seat.seat-6 {
+        left: 12%;
+    }
+
     .seat-cards {
         gap: 6px;
     }
@@ -120,6 +197,16 @@
 
     .player-seat.seat-4 {
         transform: translate(-50%, 68%);
+    }
+
+    .player-seat.seat-2,
+    .player-seat.seat-3 {
+        right: 10%;
+    }
+
+    .player-seat.seat-5,
+    .player-seat.seat-6 {
+        left: 10%;
     }
 
     .player-avatar {
